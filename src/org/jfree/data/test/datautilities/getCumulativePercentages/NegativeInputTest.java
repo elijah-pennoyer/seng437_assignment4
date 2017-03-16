@@ -10,7 +10,7 @@ import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;
 
-public class NegativeInputTest extends PositiveSummingMixedSignInputsTest {
+public class NegativeInputTest {
 
 	/**
 	 * Test Plan Coverage: getCumulativePercentages test plan 7

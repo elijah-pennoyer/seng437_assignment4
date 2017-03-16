@@ -2,6 +2,7 @@ package org.jfree.data.test.datautilities.getCumulativePercentages;
 
 import static org.junit.Assert.*;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 import org.jfree.data.DataUtilities;
@@ -20,7 +21,7 @@ public class NullValueInDataTest {
 	 * Expected Output: KeyedValues object with one 0 value at key 0
 	 * Assumptions: A KeyedValues object with a single null value is equivalent to a KeyedValues object with a single zero value.
 	 */
-	@Test
+	@Test (expected = InvalidParameterException.class)
 	public void getCumulativePercentages_NullValueInData_Test() {
 		
 		Mockery mockingContext = new Mockery();
@@ -53,17 +54,6 @@ public class NullValueInDataTest {
 		
 		
 	KeyedValues output = DataUtilities.getCumulativePercentages(input);
-		
-		
-	ArrayList<Integer> expectedKeys = new ArrayList<Integer>();
-	expectedKeys.add(0);
-	
-	assertEquals("getCumulativePercentages with a null value in KeyedValues data failed", expectedKeys, output.getKeys());
-	//NOTE: The final input for double-based assertEquals is "delta" - An offset of how close the values have to be.
-	//delta = 1e-15 is just a recommendation for delta off of the Internet - http://stackoverflow.com/questions/5686755/meaning-of-epsilon-argument-of-assertequals-for-double-values
-	double delta = 1e-15;
-	assertEquals("getCumulativePercentages with a null value in KeyedValues data failed", 0, (double) output.getValue(0), delta);
-
 	}
 
 }
