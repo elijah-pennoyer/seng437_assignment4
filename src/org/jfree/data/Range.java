@@ -60,6 +60,7 @@
 package org.jfree.data;
 
 import java.io.Serializable;
+import java.security.InvalidParameterException;
 
 /**
  * Represents an immutable range of values.
@@ -276,6 +277,10 @@ public strictfp class Range implements Serializable {
      * @return A range representing the base range shifted right by delta.
      */
     public static Range shift(Range base, double delta) {
+    	//EDIT: Added null check
+    	if(base == null){
+    		throw new InvalidParameterException();
+    	}
         return shift(base, delta, false);
     }
     
@@ -325,7 +330,8 @@ public strictfp class Range implements Serializable {
             return Math.min(value + delta, 0.0);
         }
         else {
-            return value + delta;   
+        	//EDIT: Used to return value + delta, which caused shifts to pass zero
+            return 0.0;   
         }
     }
     
