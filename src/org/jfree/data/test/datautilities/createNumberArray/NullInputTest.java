@@ -19,7 +19,7 @@ public class NullInputTest {
 	public void createNumberArray_NullInput_Test() {
 		
 		double[] data = null;
-		//This should throw an IllegalArgumentException
+		//This should throw an InvalidParameterException
 		DataUtilities.createNumberArray(data);
 		
 	}
