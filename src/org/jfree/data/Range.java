@@ -277,7 +277,7 @@ public strictfp class Range implements Serializable {
      * @return A range representing the base range shifted right by delta.
      */
     public static Range shift(Range base, double delta) {
-    	//EDIT: Added null check 
+    	//EDIT: Added null check
     	if(base == null){
     		throw new InvalidParameterException();
     	}
