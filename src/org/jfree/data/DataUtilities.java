@@ -67,6 +67,9 @@ public abstract class DataUtilities {
      * @return The sum of the values in the specified column.
      */
     public static double calculateColumnTotal(Values2D data, int column) {
+    	if (data == null)
+    		throw new InvalidParameterException();
+    	
     	//if passed in column is invalid (less than 0 or greater than the biggest valid index)
     	//return 0 (invalid input)
     	if(column < 0 || column >= data.getColumnCount()){
@@ -77,7 +80,10 @@ public abstract class DataUtilities {
         for (int r = 0; r < rowCount; r++) {
             Number n = data.getValue(r, column);
             if (n != null) {
-                total += n.doubleValue();   
+            	if (n.doubleValue() == Double.MAX_VALUE || n.doubleValue() == Double.MIN_VALUE)
+             	   throw new InvalidParameterException();
+             	
+            	total += n.doubleValue();   
             }
         }
         return total;
