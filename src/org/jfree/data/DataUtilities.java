@@ -93,6 +93,11 @@ public abstract class DataUtilities {
      * @return The total of the values in the specified row.
      */
     public static double calculateRowTotal(Values2D data, int row) {
+    	//if passed in row is invalid (less than 0 or greater than the biggest valid index)
+    	//return 0 (invalid input)
+    	if(row < 0 || row >= data.getColumnCount()){
+    		return 0;
+    	}
         double total = 0.0;
         int columnCount = data.getColumnCount();
         for (int c = 0; c < columnCount; c++) {
