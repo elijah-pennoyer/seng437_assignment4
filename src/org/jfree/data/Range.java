@@ -255,6 +255,7 @@ public strictfp class Range implements Serializable {
     public static Range expand(Range range, 
                                double lowerMargin, double upperMargin) {
         if (range == null) {
+        	//EDIT: This used to throw an IllegalArgumentException, but the documentation indicates it should be an InvalidParameterException
             throw new InvalidParameterException("Null 'range' argument.");   
         }
         double length = range.getLength();
