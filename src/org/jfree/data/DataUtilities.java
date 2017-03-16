@@ -151,7 +151,7 @@ public abstract class DataUtilities {
      */
     public static Number[][] createNumberArray2D(double[][] data) {
         if (data == null) {
-            throw new IllegalArgumentException("Null 'data' argument.");   
+            throw new InvalidParameterException("Null 'data' argument.");   
         }
         int l1 = data.length;
         Number[][] result = new Number[l1][];

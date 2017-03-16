@@ -19,7 +19,7 @@ public class Null2DInputTest {
 		
 		double[][] data = null;
 		
-		//This should throw an IllegalArgumentException
+		//This should throw an InvalidParameterException
 		DataUtilities.createNumberArray2D(data);
 		
 	}
