@@ -111,7 +111,10 @@ public abstract class DataUtilities {
     	
         double total = 0.0;
         int columnCount = data.getColumnCount();
-        int rowCount = data.getRowCount();
+        
+        //The following line was removed, as the variable rowCount is never used.
+        //int rowCount = data.getRowCount();
+        
         for (int c = 0; c < columnCount; c++) {
         	Number n = data.getValue(row, c);
             if (n != null) {
@@ -221,9 +224,11 @@ public abstract class DataUtilities {
         double runningTotal = 0.0;
         for (int i = 0; i < data.getItemCount(); i++) {
             Number v = data.getValue(i);
-            if (v != null) {
+            
+            //Removed check for v!=null (no longer necessary as an exception is thrown earlier if v == null)
+            //if (v != null) {
                 runningTotal = runningTotal + v.doubleValue();
-            }
+            //}
             //Add check for division by zero to make ValidZeroSummingInput_Test pass
             if(total == 0.0){
             	throw new InvalidParameterException();
