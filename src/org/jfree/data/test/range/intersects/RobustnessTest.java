@@ -35,6 +35,9 @@ public class RobustnessTest
         return Arrays.asList(new Object[][]
                 {
                         {-7.0,  -6.0,   false},
+                        {-7.0,  -5.0,   true},
+                        {-7.0,	-4.0,	true},
+                        {-7.0,  -6.0,   false},
                         {-6.0,  -5.0,   true},
                         {-5.0,	-4.0,	true},
                         {-4.0,  -3.0,   true},
@@ -42,6 +45,9 @@ public class RobustnessTest
                         {3.0,    4.0,   true},
                         {4.0,	 5.0,	true},
                         {5.0,    6.0,   true},
+                        {6.0,    7.0,   false},
+                        {4.0,	 7.0,	true},
+                        {5.0,    7.0,   true},
                         {6.0,    7.0,   false}
                 });
     }
