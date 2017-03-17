@@ -56,6 +56,9 @@ public class RobustnessTest
     public void intersects_LowerBoundRobustness_Test()
     {
         boolean result = r.intersects(lower, upper);
-        assertEquals("Robustness tests for intersects on a mixed-value Range.", expected, result);
+        assertEquals("Robustness tests for intersects on a mixed-value Range."
+            + "\nRange was " + r + ", lower was " + lower
+            + ", upper was " + upper, expected, result);
+
     }
 }

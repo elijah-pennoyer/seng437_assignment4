@@ -150,12 +150,17 @@ public strictfp class Range implements Serializable {
      * @return <code>true</code> if the ranges intersect.
      */
     public boolean intersects(double lower, double upper) {
-        if (lower <= this.lower) {
-            return (upper > this.lower);
-        }
-        else {
-            return (upper < this.upper && upper >= lower);
-        }
+//        if (lower <= this.lower) {
+//            return (upper >= this.lower);
+//        }
+//        else {
+//            return (upper <= this.upper && upper >= this.lower);
+//        }
+
+        if ((lower >= this.lower && upper <= this.upper) || (this.lower <= upper && this.lower >= lower) ||
+            (this.upper >= lower && this.upper <= upper))
+            return true;
+        return false;
     }
 
     /**
