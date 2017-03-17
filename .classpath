@@ -16,7 +16,6 @@
 	<classpathentry kind="lib" path="lib/hamcrest-library-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/jcommon-1.0.0-rc1-cvs.jar"/>
 	<classpathentry kind="lib" path="lib/jcommon-1.0.5.jar"/>
-	<classpathentry kind="lib" path="lib/junit-old.jar"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry kind="lib" path="lib/objenesis-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/servlet.jar"/>
