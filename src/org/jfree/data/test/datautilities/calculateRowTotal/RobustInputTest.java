@@ -27,11 +27,14 @@ public class RobustInputTest {
 	}
 	
 	//parameters to test  row -1 & 3
+	//Fixed in lab 4 to be a more comprehensive test of error condition coverage
 	@Parameters
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][] {
 			{-1, 0},
-			{3, 0}
+			{3, 0},
+			//added this case to cover mutant changing error condition from column>=data.getColumnCount to column>data.getColumnCount
+			{1,0}
 		});
 	}
 
