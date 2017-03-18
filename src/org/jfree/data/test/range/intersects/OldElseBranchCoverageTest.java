@@ -12,8 +12,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+@Deprecated
 @RunWith (Parameterized.class)
-public class ElseBranchCoverageTest {
+public class OldElseBranchCoverageTest {
 
 	private Range r;
 	double lower;
@@ -26,7 +27,7 @@ public class ElseBranchCoverageTest {
 	@Before
 	public void setup() { r = new Range(-5.0, 5.0); }
 	
-	public ElseBranchCoverageTest(double lower, double upper, boolean expected){
+	public OldElseBranchCoverageTest(double lower, double upper, boolean expected){
 		this.lower = lower;
 		this.upper = upper;
 		this.expected = expected;

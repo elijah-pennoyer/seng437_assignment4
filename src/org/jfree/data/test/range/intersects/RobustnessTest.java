@@ -35,21 +35,35 @@ public class RobustnessTest
     public static Collection<Object []> data()
     {
         return Arrays.asList(new Object[][]
-                {
-                        {-7.0,  -6.0,   false},
-                        {-7.0,  -5.0,   true},
-                        {-7.0,	-4.0,	true},
-                        {-6.0,  -5.0,   true},
-                        {-5.0,	-4.0,	true},
-                        {-4.0,  -3.0,   true},
-                        {-0.5,   0.5,   true},
-                        {3.0,    4.0,   true},
-                        {4.0,	 5.0,	true},
-                        {5.0,    6.0,   true},
-                        {4.0,	 7.0,	true},
-                        {5.0,    7.0,   true},
-                        {6.0,    7.0,   false}
-                });
+        {
+            //  Robustness for the Range's lower bound.
+
+            {-7.0,  -6.0,   false},
+            {-7.0,  -5.0,   true},
+            {-7.0,	-4.0,	true},
+            {-6.0,  -5.0,   true},
+            {-5.0,	-4.0,	true},
+            {-4.0,  -3.0,   true},
+
+            //  Median value test.
+
+            {-0.5,   0.5,   true},
+
+            //  Robustness for the Range's upper bound.
+
+            {3.0,    4.0,   true},
+            {4.0,	 5.0,	true},
+            {5.0,    6.0,   true},
+            {4.0,	 7.0,	true},
+            {5.0,    7.0,   true},
+            {6.0,    7.0,   false},
+
+            //  These are for when (lower, upper) are the same
+            //  as the Range and for when they subsume the Range.
+
+            {-5.0,   5.0,   true},
+            {-7.0,   7.0,   true}
+        });
     }
 
     @Test

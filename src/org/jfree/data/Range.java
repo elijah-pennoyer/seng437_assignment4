@@ -157,8 +157,20 @@ public strictfp class Range implements Serializable {
 //            return (upper <= this.upper && upper >= this.lower);
 //        }
 
-        if ((lower >= this.lower && upper <= this.upper) || (this.lower <= upper && this.lower >= lower) ||
-            (this.upper >= lower && this.upper <= upper))
+
+        //  The first condition is for when (lower, upper) is a subset of
+        //  the Range.
+
+        //  The second condition is for when (lower, upper) subsumes the Range.
+
+        //  The third is for when the some part of the left side of the Range
+        //  overlaps with (lower, upper).
+
+        //  The final is for when some part of the right side of the Range
+        //  overlaps with (lower, upper).
+
+        if ((lower >= this.lower && upper <= this.upper) || (lower >= this.lower && upper >= this.upper) ||
+            (this.lower <= upper && this.lower >= lower) || (this.upper >= lower && this.upper <= upper))
             return true;
         return false;
     }
