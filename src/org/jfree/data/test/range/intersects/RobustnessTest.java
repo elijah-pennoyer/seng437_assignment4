@@ -57,17 +57,11 @@ public class RobustnessTest
             {4.0,	 7.0,	true},
             {5.0,    7.0,   true},
             {6.0,    7.0,   false},
-
-            //  These are for when (lower, upper) are the same
-            //  as the Range and for when they subsume the Range.
-
-            {-5.0,   5.0,   true},
-            {-7.0,   7.0,   true}
         });
     }
 
     @Test
-    public void intersects_LowerBoundRobustness_Test()
+    public void intersects_Robustness_Test()
     {
         boolean result = r.intersects(lower, upper);
         assertEquals("Robustness tests for intersects on a mixed-value Range."

@@ -150,26 +150,35 @@ public strictfp class Range implements Serializable {
      * @return <code>true</code> if the ranges intersect.
      */
     public boolean intersects(double lower, double upper) {
+
+//        This would be equivalent to compound condition C below I think...
+//
 //        if (lower <= this.lower) {
 //            return (upper >= this.lower);
 //        }
+
+//        This would be equivalent to compound condition D I think...
+
 //        else {
 //            return (upper <= this.upper && upper >= this.lower);
 //        }
 
 
         //  The first condition is for when (lower, upper) is a subset of
-        //  the Range.
+        //  the Range. (I'll denote this particular compound condition A).
 
         //  The second condition is for when (lower, upper) subsumes the Range.
+        //  (I'll denote this particular compound condition B).
 
         //  The third is for when the some part of the left side of the Range
-        //  overlaps with (lower, upper).
+        //  overlaps with (lower, upper). (I'll denote this particular compound
+        //  condition C).
 
         //  The final is for when some part of the right side of the Range
-        //  overlaps with (lower, upper).
+        //  overlaps with (lower, upper). (I'll denote this particular compound
+        //  condition D).
 
-        if ((lower >= this.lower && upper <= this.upper) || (lower >= this.lower && upper >= this.upper) ||
+        if ((this.lower <= lower && this.upper >= upper) || (this.lower >= lower && this.upper <= upper) ||
             (this.lower <= upper && this.lower >= lower) || (this.upper >= lower && this.upper <= upper))
             return true;
         return false;
