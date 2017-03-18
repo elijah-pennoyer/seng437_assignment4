@@ -34,10 +34,31 @@ public class MultipleConditionDecisionCoverageTest
     {
         return Arrays.asList(new Object[][]
         {
+            //  Outside
+
             {-6.0,  -6.0,   false},
+
+            //  Subsumes
+
             {-6.0,   6.0,   true},
+
+            //  Also outside
+
             {6.0,    6.0,   false},
-            {4.0,    4.0,   true}
+
+            //  Subset
+
+            {4.0,    4.0,   true},
+
+            //  Straddle-left
+
+            {-6.0,   4.0,   true},
+
+            //  Straddle-right
+
+            {4.0,    6.0,   true}
+
+
         });
     }
 

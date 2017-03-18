@@ -40,9 +40,8 @@ public class RobustnessTest
 
             {-7.0,  -6.0,   false},
             {-7.0,  -5.0,   true},
-            {-7.0,	-4.0,	true},
-            {-6.0,  -5.0,   true},
-            {-5.0,	-4.0,	true},
+            {-7.0,	-3.0,	true},
+            {-5.0,	-3.0,	true},
             {-4.0,  -3.0,   true},
 
             //  Median value test.
@@ -52,9 +51,8 @@ public class RobustnessTest
             //  Robustness for the Range's upper bound.
 
             {3.0,    4.0,   true},
-            {4.0,	 5.0,	true},
-            {5.0,    6.0,   true},
-            {4.0,	 7.0,	true},
+            {3.0,	 5.0,	true},
+            {3.0,	 7.0,	true},
             {5.0,    7.0,   true},
             {6.0,    7.0,   false},
         });
