@@ -35,29 +35,36 @@ public class RobustnessTest
     public static Collection<Object []> data()
     {
         return Arrays.asList(new Object[][]
-                {
-                        {-7.0,  -6.0,   false},
-                        {-7.0,  -5.0,   true},
-                        {-7.0,	-4.0,	true},
-                        {-7.0,  -6.0,   false},
-                        {-6.0,  -5.0,   true},
-                        {-5.0,	-4.0,	true},
-                        {-4.0,  -3.0,   true},
-                        {-0.5,   0.5,   true},
-                        {3.0,    4.0,   true},
-                        {4.0,	 5.0,	true},
-                        {5.0,    6.0,   true},
-                        {6.0,    7.0,   false},
-                        {4.0,	 7.0,	true},
-                        {5.0,    7.0,   true},
-                        {6.0,    7.0,   false}
-                });
+        {
+            //  Robustness for the Range's lower bound.
+
+            {-7.0,  -6.0,   false},
+            {-7.0,  -5.0,   true},
+            {-7.0,	-3.0,	true},
+            {-5.0,	-3.0,	true},
+            {-4.0,  -3.0,   true},
+
+            //  Median value test.
+
+            {-0.5,   0.5,   true},
+
+            //  Robustness for the Range's upper bound.
+
+            {3.0,    4.0,   true},
+            {3.0,	 5.0,	true},
+            {3.0,	 7.0,	true},
+            {5.0,    7.0,   true},
+            {6.0,    7.0,   false},
+        });
     }
 
     @Test
-    public void intersects_LowerBoundRobustness_Test()
+    public void intersects_Robustness_Test()
     {
         boolean result = r.intersects(lower, upper);
-        assertEquals("Robustness tests for intersects on a mixed-value Range.", expected, result);
+        assertEquals("Robustness tests for intersects on a mixed-value Range."
+            + "\nRange was " + r + ", lower was " + lower
+            + ", upper was " + upper, expected, result);
+
     }
 }
